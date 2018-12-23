@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="boom,13132512292@163.com"><title>关于数据库 · Record</title><meta name="description" content="数据库系统的三级数据模式结构
+三级模式1、模式：模式也称为逻辑模式，是对数据库中数据的整体逻辑结构和特征的描述。逻辑模式使用模式DDL定义，定义的内容不仅包括对数据库的记录型、数据项的型、记录间的联系等的描述，同时包括对数据的安全性定义、数据应满足的完整性条件和数据寻址方式的说明。逻辑模式是对所有用"><meta name="keywords" content="Hexo,HTML,CSS,android,Linux"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="/images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/images/logo@2x.png" style="width:127px;"><h3 title=""><a href="/">Record</a></h3><div class="description"><p>谨以此来记录这段学习的过程</p></div></div></div><ul class="social-links"><li><a href="http://github.com/bababoom"><i class="fa fa-github"></i></a></li></ul><div class="footer"><a target="_blank" href="/"><span>Theme by </span></a><a href="https://www.caicai.me"> CaiCai </a><span>&</span><a href="https://github.com/Ben02/hexo-theme-Anatole"> Ben</a><div class="by_farbox"><a href="https://hexo.io/zh-cn/" target="_blank">Proudly published with Hexo&#65281;</a></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div><div class="avatar"><img src="/images/emm.jpg"></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>关于数据库</a></h3></div><div class="post-content"><h3 id="数据库系统的三级数据模式结构"><a href="#数据库系统的三级数据模式结构" class="headerlink" title="数据库系统的三级数据模式结构"></a>数据库系统的三级数据模式结构</h3><ul>
+<li><p>三级模式<br>1、模式：模式也称为逻辑模式，是对数据库中数据的整体逻辑结构和特征的描述。逻辑模式使用模式DDL定义，定义的内容不仅包括对数据库的记录型、数据项的型、记录间的联系等的描述，同时包括对数据的安全性定义、数据应满足的完整性条件和数据寻址方式的说明。逻辑模式是对所有用户的数据进行综合抽象得到的统一的全局数据视图。一个数据库系统只能有一个逻辑模式。<br>2、外模式：外模式也称子模式，是对各个用户或程序所涉及到的数据的逻辑结构和数据特征的描述。使用子模式DDL定义，该定义涉及对子模式的数据结构、数据域、数据构造规则及数据安全性和完整性等属性的描述。<br>外模式是完全按照用户自己对数据的需要，站在局部的角度进行设计的。由于一个数据库系统有多个用户，所以就有可能有多个数据外模式。外模式是面向用户或程序设计的，所以被称为用户数据视图。从逻辑关系上看，外模式是模式的一个逻辑子集，从一个模式（逻辑模式）可以推导出多个不同的外模式。显然用户数据库是概念数据库的部分抽取。<br>3、内模式：内模式也叫存储模式或物理模式。内模式是对数据的内部表示或底层描述。内模式使用内模式DDL定义。内模式DDL不仅能定义数据的数据项、记录、数据集、索引和存取路径在内的一切物理组织方式等属性，同时还要规定数据的优化性能、响应时间和存储空间需求，规定数据的记录位置、块的大小与数据溢出区等。<br>用户数据库、概念数据库和物理数据库三者的关系是：用户数据库是概念数据库的子集，也是物理数据库子集的逻辑描述。<br><img src="http://osyvt66as.bkt.clouddn.com/2018-07-26-1.gif" alt="enter description here"></p>
+</li>
+<li><p>两级映像<br>数据库系统的二级映像技术是指外模式与逻辑模式之间的映像、逻辑模式与外模式之间的映像技术，二级映像技术不仅在三级模式之间建立了联系，同时保证了数据的独立性。<br>1、外模式/逻辑模式之间的映像及作用<br>外模式/逻辑模式之间的映像，定义并保证了外模式与逻辑模式之间的对应关系。外模式/逻辑模式的映像通常保存在外模式中。当逻辑模式变化时，DBA可以修改映像的方法使外模式不变；由于程序是根据外模式进行设计的，只要爱模式不改版，应用程序就不需要修改。使得用户能按外模式 进行程序设计，同时保证了数据的逻辑独立性。<br>2、逻辑模式/内模式的映像及作用<br>逻辑模式/内模式之间的映像，定义并保证了数据的逻辑模式与内模式之间的对应关系，说明数据的记录、数据项在计算机内部是如何组织和表示的。当数据库的存储结构改变时，DBA可以通过修改逻辑模式/内模式之间的映像是数据模式不变化。由于用户或程序是按数据的逻辑模式使用数据的，所以只要数据模式不变，用户仍可以按照原来的方式使用数据，程序也不用修改。逻辑模式/内模式的映像技术不仅使用户或程序能够按数据的逻辑结构使用数据，还提供了内模式变化而程序不变的方法，从而保证了数据的物理独立性。</p>
+</li>
+</ul>
+<h3 id="关系数据模型的名词解释"><a href="#关系数据模型的名词解释" class="headerlink" title="关系数据模型的名词解释"></a>关系数据模型的名词解释</h3><p>1、关系：一个关系对应通常所说的一张二维表。<br>2、元祖：表中的一行称为一个元祖<br><img src="http://osyvt66as.bkt.clouddn.com/2018-07-26-2.png" alt="enter description here"><br>3、属性：表中的一列称为一个属性。一个表中往往有多个属性，为了区分属性，要给每个列器一个属性名。同一个表中的属性应具有不同的属性名，属性也称为列或字段。<br>4、码：表中的某个列或列组，它们的值可以唯一的确定一个元祖，且列组中不含多余的列，这样的列组或列称为关系的码。<br>5、域：列额取值范围称为域。（例如：学生年龄的域一般为16-35）<br>6、分量：元组中的一个列值称为分量<br>7、关系模式：关系的型称为福安息模式，关系模式是对关系的描述。关系模式的一般表示是：关系名（列1，列2，…）</p>
+<h3 id="实体联系的类型"><a href="#实体联系的类型" class="headerlink" title="实体联系的类型"></a>实体联系的类型</h3><ul>
+<li>两个实体之间的联系<br>  1、一对一（1:1）：设有两个实体集A和B，如果实体集A与实体集B之间具有一对一联系，则：对于实体集A中的每个实体，在实体集B中最多有一个（或者没有）实体与之联系；反之，对于实体集B中的每个实体，实体集A也最多有一个与之联系。例如：在一个工厂里面只有一个厂长，一个厂长也只能在一个工厂任职，厂长和工厂之间具有1:1联系。<br>  2、一对多（1：n）：设有两个实体集A和B，如果实体集A与实体集B之间具有一对多联系，则：对于实体集A的每个实体，实体集B中有一个或者多个实体与之联系；而对于实体集B中的每个实体，实体集A中最多有一个实体与之联系。例如：一个学校有多个老师，每个老师只能在一个学校任职。学校和老师之间具有1：n联系。<br>  3、多对多联系（m:n)：设有两个实体集A和B，如果实体集A与实体集B之间具有多对多联系，则：对于实体集A的每个实体，实体集B中有一个或多个实体与之联系；反之，对于实体集B中的每个实体，实体集A中也有一个或多个实体与之联系。例如：工厂里的一个职工可以参加多种体育组织，。而一个体育组织也可以有多名职工，体育组织和职工之间就具有m:n的联系。</li>
+<li>三个或三个以上的实体之间的联系<br>1、一对多：设实体集E1、E2、E3…En，如果Ej(j=1,2…n)与其他实体集E1,E2,E3…Ej-1,Ej+1,…En之间存在有一对多联系，则对于Ej中的一个给定实体，可以与其他实体集Ei(i!=j)中的一个或多个实体联系，而实体集Ej(i!=j)中的一个实体最多至欧鞥与Ej中的一个实体联系，则称Ej与E1,E2,…Ej-1,Ej+1,…En之间的联系是一对多的。<br>2、多对多：在两个以上的多个实体集之间，当一个实体集与其他实体集之间均存在多对多联系，而其他实体集之间没有联系时，这种联系称为多对多联系。<br><img src="http://osyvt66as.bkt.clouddn.com/2018-07-26-3.png" alt="enter description here"></li>
+</ul>
+<h3 id="信息模型向关系模型的转换"><a href="#信息模型向关系模型的转换" class="headerlink" title="信息模型向关系模型的转换"></a>信息模型向关系模型的转换</h3><p>将E-R图转换成关系模型要解决两个问题：一是如何将实体集和实体键的联系转换成关系模式，二是如何确定这些关系模式的属性和码。关系模型的逻辑结构是一组关系模式，而E-R图则是由实体集、属性以及联系三要素组成。<br>1、实体集的转换规则<br>信息模型中的一个实体集转换成关系模型中的一个关系，实体的属性就是关系的属性，实体的码就是关系的码，关系的结构是关系模式。<br>2、实体集间联系的转换规则</p>
+<ul>
+<li><p>1:1联系的转换方法<br>  一个1:1联系可以转换为一个独立的关系，也可以与任意一端实体集所对应的关系合并。如果将1:1联系转换成一个独立的关系，则与该联系相连的各实体的码以及联系本身属性均转换为关系的属性，且每个实体的码均是该关系的候选码。如果将1:1联系与某实体集所对应的关系合并，则需要在被合并关系中增加属性，其新增的属性为联系本身的属性和与联系相关的另一个实体集的码。<br>  举个栗子<br>  ：<img src="http://osyvt66as.bkt.clouddn.com/2018-07-26-4.png" alt="enter description here"></p>
+<p>  这个栗子有三种方案(加粗的属性为码）</p>
+</li>
+<li><ul>
+<li>方案一：联系形成独立关系，关系模型为<br>职工（<strong>职工号</strong>，姓名，年龄）<br>产品（<strong>产品号</strong>，产品名，价格）<br>负责（<strong>职工号</strong>，<strong>产品号</strong>）</li>
+</ul>
+</li>
+<li><ul>
+<li>方案二：“负责”与“职工“两关系合并<br>职工（<strong>职工号</strong>，姓名，年龄，产品号）<br>产品（<strong>产品号</strong>，产品名，价格）</li>
+</ul>
+</li>
+<li><ul>
+<li>方案三：“负责”与“产品”关系合并<br>职工（<strong>职工号</strong>，姓名，年龄）<br>产品（<strong>产品号</strong>，产品名，价格，职工号）</li>
+</ul>
+</li>
+</ul>
+<p>将上面三种方案进行比较，方案一中因为关系多，增加了系统的复杂性，方案二由于不是每个职工都负责产品，就会造成产品号属性的NULL值过多，而方案三比较合理。在实际转换过程中，因根据具体的情况决定如何转换。</p>
+<ul>
+<li>1：n联系的转换方法<br>有两种方法：1、将联系转换成一个独立的关系，其关系的属性有与该联系相连的个实体集的码以及联系本身属性组成，而该关系的码为n端实体集的码。2、在n端实体集中增加新属性，新属性由联系对应的1端实体集的码和联系自身联系的属性构成，新增属性后原关系的码不变。<br>举例子：<br><img src="http://osyvt66as.bkt.clouddn.com/2018-07-26-5.png" alt="enter description here"><br>第一个转换：<ul>
+<li><ul>
+<li>方案一：联系形成独立关系<br>仓库（<strong>仓库号</strong>，地点，面积）<br>产品（<strong>产品号</strong>，产品名，数量）<br>仓储（仓库号，<strong>产品号</strong>，数量）</li>
+</ul>
+</li>
+<li><ul>
+<li>方案二：联系形成的关系与n端合并<br>仓库（<strong>仓库号</strong>，地点，面积）<br>产品（<strong>产品号</strong>，产品名，价格，仓库号，数量）<br>第二个图的同实体集的1:n联系转换为关系模型</li>
+</ul>
+</li>
+<li><ul>
+<li>方案一：合并<br>职工（<strong>职工号</strong>，姓名，年龄，领导工号）</li>
+</ul>
+</li>
+<li><ul>
+<li>方案二：转换为两个关系模式<br>职工（<strong>职工号</strong>，姓名，年龄）<br>领导（领导工号，工号，<strong>职工号</strong>）<br>在这个例子中，第二种方案关系少，且能充分表达原有的数据联系，所以第二种更佳。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>m:n联系的转换方法<br>将一个m:n的联系转换为一个关系，方法为：与该联系相连的各实体集的码以及联系本身的属性均转换为关系的属性，信管系的码为两个相连实体码的组合（该码为多属性构成的组合码）<br>例子：<br><img src="http://osyvt66as.bkt.clouddn.com/2018-07-26-6.png" alt="enter description here"><br>第一张图：<br> 学生（<strong>学号</strong>，姓名，年龄，性别）<br> 课程（<strong>课程号</strong>，课程名，学时数）<br> 选修（<strong>学号</strong>，<strong>课程号</strong>，成绩）<br>第二张图同实体集间的m:n联系转换为关系模式<br>  零件（<strong>零件号</strong>，名称，价格）<br>  组装（<strong>组装件号</strong>，<strong>零件号</strong>，数量）</p>
+</li>
+<li><p>三个火三个以上实体集间的多元联系转换方法</p>
+</li>
+<li><ul>
+<li>1：n多元联系：<br>修改n端实体集对应的关系，将于联系相关的1端实体集的码和联系自身的属性作为新属性加入到n端实体集中。</li>
+</ul>
+</li>
+<li><ul>
+<li>多对多的多元联系<br>新建一个独立的关系，该关系的属性为多元联系相连的个实体的码以及联系本身的属性，码为各实体码的组合。</li>
+</ul>
+</li>
+</ul>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-07-26</span><i class="fa fa-tag"></i></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" href="http://twitter.com/home?status=,http://yoursite.com/2018/07/26/关于数据库/,Record,关于数据库,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2018/12/23/hello-world/" title="Hello World">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2018/07/17/浅谈对IOC和DI的认识/" title="浅谈对IOC和DI的认识">下一篇</a></li></ul></div></div></div></div></div><script src="/js/jquery.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script></body></html>
